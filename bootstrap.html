@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabuada Generator</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .container {
+      margin-top: 50px;
+    }
+    .card {
+      margin-top: 20px;
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h2 class="text-center">Tabuada</h2>
+      <div class="form-group">
+        <label for="numero">Digite um número:</label>
+        <input type="number" class="form-control" id="numero" placeholder="Digite um número">
+      </div>
+      <button type="button" class="btn btn-primary btn-block" onclick="gerarTabuada()">Gerar Tabuada</button>
+    </div>
+
+    <div id="resultado" class="card">
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    function gerarTabuada() {
+    
+      document.getElementById("resultado").innerHTML = '';
+
+      
+      let numero = document.getElementById("numero").value;
+
+  
+      if (numero === '' || isNaN(numero)) {
+        alert("Por favor, digite um número válido.");
+        return;
+      }
+
+      numero = parseInt(numero);
+
+      let tabela = '<h3>Tabuada do ' + numero + '</h3>';
+      tabela += '<table class="table">';
+      for (let i = 1; i <= 10; i++) {
+        tabela += '<tr><td>' + numero + ' x ' + i + ' = </td><td>' + (numero * i) + '</td></tr>';
+      }
+      tabela += '</table>';
+
+      document.getElementById("resultado").innerHTML = tabela;
+    }
+  </script>
+</body>
+</html>
